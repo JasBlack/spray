@@ -44,6 +44,10 @@ def build():
 <meta name="twitter:title" content="Spray - JAS.BLACK">
 <meta property="og:description" content="Paint a yard of walls, one can at a time.">
 <meta property="og:image" content="https://spray.jas.black/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Spray: a 3D graffiti wall studio in the browser. A dark brick wall">
+<meta name="twitter:image" content="https://spray.jas.black/og.png">
 <meta property="og:url" content="https://spray.jas.black/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
