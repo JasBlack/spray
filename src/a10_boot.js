@@ -72,6 +72,7 @@ async function boot(){
   if (!restored){ if (walls.length) disposeAll(); await msg('Mixing brick, concrete and steel…'); await defaultYard(); }
   else saveNote('Your last session was restored from this browser.');
   STORE.busy = false; updateUndoUI();
+  rememberDefaults();
   goHome(false);
   $('#loading').hidden = true;
   toast(restored ? 'Welcome back. Your yard is how you left it.' : 'Hold the mouse button to spray. Scroll zooms, middle-drag looks around, Shift + middle-drag pans.');

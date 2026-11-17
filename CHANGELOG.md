@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.5 — 2026-11-17
+
+Brings Spray in line with the JAS.BLACK tool family's shared interface rules.
+
+- **One purple:** the interface violet (readouts, the colour code, the images / build mode pill, focus rings) is now `#8b6cff`, as in every family tool. Paint colours are unchanged.
+- **Right-click resets any setting** to how it was when the page loaded: sliders, the colour fields, the cap or marker, the mode switch, spray can / marker, paint / buff, the guide, auto paint, aim ring and sound chips, and the light. Action buttons keep the normal menu; right-drag on the 3D view still looks around.
+- **Dot grid:** the background dots are a fixed tile now, finer and fainter (16 px spacing), dark and light. They were a live CSS gradient, which can shimmer on macOS.
+- **Key bar:** the strip under the yard lists the main keys as small raised keys, each with one word, ending with "right-click a setting resets it". Hidden on touch screens.
+- The unused numbered-step badge style is gone (Spray has no easy mode).
+
 ## 1.0.4 — 2026-11-17
 
 - New starting setup: **NY Fat** cap, **13.5 cm** distance, **90%** pressure, light drips, **Lemon** paint.

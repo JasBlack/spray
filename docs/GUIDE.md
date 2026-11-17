@@ -7,6 +7,8 @@ Every control in Spray, and what it is doing underneath.
 - **Top bar.** The mode switch (**paint · images · build**), status lights (**saved**: the yard autosaves in this browser; **hands**: lit while the camera is tracking), the transport keys (**undo**, **⟲ back to wall**, **redo**, **rec**), then **? guide**, **▤ tools**, **⛶** full screen and **◐** light / dark.
 - **Panel.** Four tabs: **Paint**, **Images**, **Yard**, **More**. **H** hides it, and the 3D view takes the full width.
 - **Monitor.** The yard. The green strip underneath shows the cap, the can's distance from the wall, the spray width, the pressure (or the ink level for markers) and the mode.
+- **Key bar.** Along the bottom: the main keys, each with one word. The full list is under **More → Controls**. Hidden on touch screens.
+- **Right-click a setting** to put it back to how it was when the page loaded: any slider, the colour, the cap or marker, the mode, spray can / marker, paint / buff, the guide and auto paint chips, the light. Buttons that do something (undo, save, add a wall) keep the normal menu, and right-drag on the 3D view still looks around.
 
 ## Moving around
 

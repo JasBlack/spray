@@ -304,3 +304,30 @@ function wireUI(){
   $('#modalClose').onclick = () => { $('#modal').hidden = true; $('#modalVid').pause && $('#modalVid').pause(); };
   $('#modal').addEventListener('click', e => { if (e.target.id === 'modal') $('#modalClose').onclick(); });
 }
+
+/* ---- right-click returns a setting to its state when the page finished loading (family rule) ----
+   Sliders and colour fields, the one-of groups (mode, tool, paint / buff, guide shapes, line colour, light),
+   the cap or marker, and the on/off chips. Action keys keep the browser's menu; the 3D view keeps right-drag. */
+const DEFS = { el: new Map(), groups: [], toggles: [] };
+function rememberDefaults(){
+  for (const el of $$('#panel input[type=range], #panel input[type=color]')) DEFS.el.set(el, el.value);
+  DEFS.groups = ['#modeBar', '#guideModes', '#lineColors', '#lightModes', '#toolSpray', '#toolPaint'].map(s => {
+    const g = s.startsWith('#tool') ? $(s).parentElement : $(s);
+    return { g, on: [...g.children].findIndex(b => b.classList.contains('on')) };
+  });
+  DEFS.toggles = $$('#panel .chip').filter(b => !b.closest('#lightModes, #guideModes, #lineColors'))
+    .map(b => ({ b, on: () => b.classList.contains('on'), was: b.classList.contains('on') }));
+  DEFS.toggles.push({ b: $('#guideToggle'), on: () => G.visible, was: G.visible });
+  DEFS.cap = S.cap; DEFS.marker = S.marker;
+}
+function resetSetting(t){
+  if (t.closest('#caps')){ if (S.tool === 'spray') selectCap(DEFS.cap); else selectMarker(DEFS.marker); return true; }
+  const tg = DEFS.toggles.find(x => x.b.contains(t));
+  if (tg){ if (tg.on() !== tg.was) tg.b.click(); return true; }
+  const gr = DEFS.groups.find(x => x.g.contains(t) && t.closest('button'));
+  if (gr){ const b = gr.g.children[gr.on]; if (b && !b.classList.contains('on')) b.click(); return true; }
+  const el = t.closest('input'); if (!el || !DEFS.el.has(el) || el.disabled) return false;
+  if (el.value !== DEFS.el.get(el)){ el.value = DEFS.el.get(el); el.dispatchEvent(new Event('input', { bubbles: true })); el.dispatchEvent(new Event('change', { bubbles: true })); }
+  return true;
+}
+document.addEventListener('contextmenu', e => { if (!e.defaultPrevented && e.target instanceof Element && DEFS.cap !== undefined && resetSetting(e.target)) e.preventDefault(); });

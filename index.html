@@ -27,14 +27,14 @@
 <style>
 /* Spray in the JAS.BLACK console look (Fault / Code Painter family).
    Layout: a 42px top bar; below it either a docked panel beside a framed monitor (body.dock) or the 3D yard full-bleed with the bar and panel floating over it (body.float). */
-:root{color-scheme:dark;--accent:#39ff88;--accent2:#b36bff;--case:#121314;--panel:#18191b;--line:#26272a;--key:#222326;--keyon:#1b1c1e;--keyline:#303135;--shadow:#070708;--text:#e4e4e1;--muted:#929399;--track:#2e2f33;--well:#141517;--ink:#e4e4e1;--inktext:#121314;--knob:#2c2d31;--ledoff:#34353a;--warn:#ff3b30;
+:root{color-scheme:dark;--accent:#39ff88;--accent2:#8b6cff;--case:#121314;--panel:#18191b;--line:#26272a;--key:#222326;--keyon:#1b1c1e;--keyline:#303135;--shadow:#070708;--text:#e4e4e1;--muted:#929399;--track:#2e2f33;--well:#141517;--ink:#e4e4e1;--inktext:#121314;--knob:#2c2d31;--ledoff:#34353a;--warn:#ff3b30;
   --wide:'Archivo','Arial Black',Arial,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
-  --dotgrid:radial-gradient(circle at 1px 1px,#ffffff10 1px,transparent 1.4px)}
-body[data-ui=light]{color-scheme:light;--case:#e7e7e4;--panel:#efefec;--line:#d6d6d2;--key:#fafaf8;--keyon:#ececea;--keyline:#cfcfcb;--shadow:#bdbdb8;--text:#1b1b1d;--muted:#686864;--track:#d0d0cc;--well:#e4e4e1;--ink:#1b1b1d;--inktext:#f2f2ef;--knob:#fafaf8;--ledoff:#cdcdc9;--dotgrid:radial-gradient(circle at 1px 1px,#00000012 1px,transparent 1.4px)}
+  --dotgrid:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAATElEQVR42u3OOQrAQAxDUSlp5v6ndROcRhcYM6TJf+DCAi8SAAB/5+lgd9+SVtqy/Uz2XMPjznGnVrJvHjhp9IDtllSSOlXJAADAthcsBBEI93xN9gAAAABJRU5ErkJggg==')}
+body[data-ui=light]{color-scheme:light;--case:#e7e7e4;--panel:#efefec;--line:#d6d6d2;--key:#fafaf8;--keyon:#ececea;--keyline:#cfcfcb;--shadow:#bdbdb8;--text:#1b1b1d;--muted:#686864;--track:#d0d0cc;--well:#e4e4e1;--ink:#1b1b1d;--inktext:#f2f2ef;--knob:#fafaf8;--ledoff:#cdcdc9;--dotgrid:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAUklEQVR42u3SPQrAMAhA4ZeGDl2a+5+za/qzeIJYWgLvA8FFURQkSZpciRhWE7Ur0IAN6MA10mRJbL7HAjXy8uUAr8mcoMcZbuAAzimfUJKk3z3AAQY6ol938gAAAABJRU5ErkJggg==')}
 [hidden]{display:none!important}
 *{box-sizing:border-box}
 html,body{height:100%;margin:0;overflow:hidden}
-body{background:var(--dotgrid) 0 0/24px 24px,var(--case);color:var(--text);font:11px/1.4 var(--mono);-webkit-user-select:none;user-select:none}
+body{background:var(--dotgrid) 0 0/16px 16px,var(--case);color:var(--text);font:11px/1.4 var(--mono);-webkit-user-select:none;user-select:none}
 button,input,select{font:inherit;color:inherit}
 button{cursor:pointer}
 :focus-visible{outline:2px solid var(--accent2);outline-offset:3px}
@@ -78,8 +78,6 @@ button.k,.btn,#bar button,.cap,.mat,.layer{font:500 10px var(--mono);background:
 section{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:13px 12px;display:flex;flex-direction:column;gap:10px}
 h2{margin:0;display:flex;gap:8px;align-items:center;font:500 9px var(--mono);letter-spacing:.2em;text-transform:uppercase}
 h2>span{margin-left:auto}
-h2 b{display:inline-flex;align-items:center;gap:8px;font-weight:500}
-h2 b i{width:18px;height:18px;display:inline-grid;place-items:center;background:var(--accent);color:#0b0b0c;border-radius:50%;font:600 10px var(--mono);font-style:normal;letter-spacing:0}
 h2>span{font-size:7px;color:var(--muted);letter-spacing:.15em;text-transform:uppercase}
 h3{margin:2px 0 0;font:500 8px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .hint,.capnote{font-size:8px;color:var(--muted);line-height:1.6;margin:0}
@@ -125,7 +123,8 @@ input[type=color]::-webkit-color-swatch{border:1px solid var(--keyline);border-r
 .chip::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--ledoff)}
 .chip.on{color:var(--text)}.chip.on::before{background:var(--accent);box-shadow:0 0 4px #39ff8877}
 .keys{display:grid;grid-template-columns:auto 1fr;gap:5px 10px;font-size:9px;color:var(--muted)}
-kbd{border:1px solid var(--line);border-radius:3px;padding:0 4px;font:500 8px/1.6 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--text);justify-self:start;white-space:nowrap}
+kbd{display:inline-block;min-width:14px;padding:0 4px;margin:0 1px;border-radius:3px;border:1px solid var(--keyline);background:var(--key);box-shadow:0 1px 0 var(--shadow);font:500 8.5px/14px var(--mono);color:var(--text);text-align:center;white-space:nowrap}
+.keys kbd{justify-self:start}
 .apbar{height:2px;background:var(--track);overflow:hidden}.apbar i{display:block;height:100%;width:0;background:var(--accent)}
 .peers{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px;font-size:10px}
 .peers li{display:flex;align-items:center;gap:8px}.pdot{width:6px;height:6px;border-radius:50%}
@@ -147,10 +146,9 @@ kbd{border:1px solid var(--line);border-radius:3px;padding:0 4px;font:500 8px/1.
 #hud .mode{color:#0b0b0c;background:var(--accent);border-radius:3px;padding:1px 5px}
 #hud .mode.buff{background:var(--warn);color:#fff}#hud .mode.alt{background:var(--accent2);color:#0b0b0c}
 #hudRec{color:var(--warn)}
-footer#foot{height:22px;flex:none;display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted);font-size:9px;padding:0 4px;white-space:nowrap;overflow:hidden}
-footer#foot span{display:flex;gap:6px;align-items:center}
-footer#foot small{margin-right:8px}
-.tagline{letter-spacing:.14em}
+/* key-hint bar, as in Align: raised keys each followed by one word */
+footer#foot{flex:none;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:8.5px;color:var(--muted);letter-spacing:.08em;padding:2px 4px}
+@media (hover:none) and (pointer:coarse){footer#foot{display:none}}
 
 /* ---- layout: docked (Fault) ---- */
 body.dock{padding:12px;display:flex;flex-direction:column;gap:12px}
@@ -234,7 +232,7 @@ body.float footer#foot{display:none}
 <body class="dock">
 <div id="loading"><div><div class="logo">SPRAY</div><p id="loadMsg">Mixing paint…</p></div></div>
 <header id="bar">
-  <div class="hl"><span class="brand">SPRAY</span><span class="brand-ver">v1.0.4</span>
+  <div class="hl"><span class="brand">SPRAY</span><span class="brand-ver">v1.0.5</span>
     <nav class="view-switch" id="modeBar" aria-label="Mode"><button data-mode="paint" class="on" title="Paint (P)">paint</button><button data-mode="arrange" title="Move, scale and rotate images (M)">images</button><button data-mode="build" title="Add and place walls (B)">build</button></nav>
     <div class="status"><span><i class="led"></i>saved</span><span><i class="led off" id="ledHands"></i>hands</span></div></div>
   <div class="transport">
@@ -439,7 +437,7 @@ body.float footer#foot{display:none}
 </div>
 </div>
 </main>
-<footer id="foot"><span><kbd>click</kbd><small>spray</small><kbd>wheel</kbd><small>zoom</small><kbd>mid-drag</kbd><small>look</small><kbd>wasd</kbd><small>walk</small><kbd>h</kbd><small>tools</small><kbd>home</kbd><small>back to wall</small></span><span class="tagline">SPRAY · A YARD OF WALLS, ONE CAN AT A TIME</span></footer>
+<footer id="foot"><span><kbd>space</kbd> spray &middot; <kbd>wheel</kbd> zoom &middot; <kbd>mid-drag</kbd> look &middot; <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> walk &middot; <kbd>P</kbd><kbd>M</kbd><kbd>B</kbd> modes &middot; <kbd>T</kbd> tool &middot; <kbd>[</kbd><kbd>]</kbd> cap &middot; <kbd>1</kbd>&ndash;<kbd>9</kbd> colour &middot; <kbd>X</kbd> buff &middot; <kbd>G</kbd> guides &middot; <kbd>H</kbd> tools &middot; <kbd>home</kbd> back &middot; <kbd>ctrl</kbd>+<kbd>Z</kbd> undo</span><span>right-click a setting resets it</span></footer>
 
 
 <div id="dropOverlay" hidden>Drop it on a wall</div>
@@ -2559,6 +2557,33 @@ function wireUI(){
   $('#modal').addEventListener('click', e => { if (e.target.id === 'modal') $('#modalClose').onclick(); });
 }
 
+/* ---- right-click returns a setting to its state when the page finished loading (family rule) ----
+   Sliders and colour fields, the one-of groups (mode, tool, paint / buff, guide shapes, line colour, light),
+   the cap or marker, and the on/off chips. Action keys keep the browser's menu; the 3D view keeps right-drag. */
+const DEFS = { el: new Map(), groups: [], toggles: [] };
+function rememberDefaults(){
+  for (const el of $$('#panel input[type=range], #panel input[type=color]')) DEFS.el.set(el, el.value);
+  DEFS.groups = ['#modeBar', '#guideModes', '#lineColors', '#lightModes', '#toolSpray', '#toolPaint'].map(s => {
+    const g = s.startsWith('#tool') ? $(s).parentElement : $(s);
+    return { g, on: [...g.children].findIndex(b => b.classList.contains('on')) };
+  });
+  DEFS.toggles = $$('#panel .chip').filter(b => !b.closest('#lightModes, #guideModes, #lineColors'))
+    .map(b => ({ b, on: () => b.classList.contains('on'), was: b.classList.contains('on') }));
+  DEFS.toggles.push({ b: $('#guideToggle'), on: () => G.visible, was: G.visible });
+  DEFS.cap = S.cap; DEFS.marker = S.marker;
+}
+function resetSetting(t){
+  if (t.closest('#caps')){ if (S.tool === 'spray') selectCap(DEFS.cap); else selectMarker(DEFS.marker); return true; }
+  const tg = DEFS.toggles.find(x => x.b.contains(t));
+  if (tg){ if (tg.on() !== tg.was) tg.b.click(); return true; }
+  const gr = DEFS.groups.find(x => x.g.contains(t) && t.closest('button'));
+  if (gr){ const b = gr.g.children[gr.on]; if (b && !b.classList.contains('on')) b.click(); return true; }
+  const el = t.closest('input'); if (!el || !DEFS.el.has(el) || el.disabled) return false;
+  if (el.value !== DEFS.el.get(el)){ el.value = DEFS.el.get(el); el.dispatchEvent(new Event('input', { bubbles: true })); el.dispatchEvent(new Event('change', { bubbles: true })); }
+  return true;
+}
+document.addEventListener('contextmenu', e => { if (!e.defaultPrevented && e.target instanceof Element && DEFS.cap !== undefined && resetSetting(e.target)) e.preventDefault(); });
+
 /* ================================================================
    Audio: aerosol hiss + mixing-ball rattle
    ================================================================ */
@@ -3075,6 +3100,7 @@ async function boot(){
   if (!restored){ if (walls.length) disposeAll(); await msg('Mixing brick, concrete and steel…'); await defaultYard(); }
   else saveNote('Your last session was restored from this browser.');
   STORE.busy = false; updateUndoUI();
+  rememberDefaults();
   goHome(false);
   $('#loading').hidden = true;
   toast(restored ? 'Welcome back. Your yard is how you left it.' : 'Hold the mouse button to spray. Scroll zooms, middle-drag looks around, Shift + middle-drag pans.');
