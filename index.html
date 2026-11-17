@@ -234,7 +234,7 @@ body.float footer#foot{display:none}
 <body class="dock">
 <div id="loading"><div><div class="logo">SPRAY</div><p id="loadMsg">Mixing paint…</p></div></div>
 <header id="bar">
-  <div class="hl"><span class="brand">SPRAY</span><span class="brand-ver">v1.0.2</span>
+  <div class="hl"><span class="brand">SPRAY</span><span class="brand-ver">v1.0.3</span>
     <nav class="view-switch" id="modeBar" aria-label="Mode"><button data-mode="paint" class="on" title="Paint (P)">paint</button><button data-mode="arrange" title="Move, scale and rotate images (M)">images</button><button data-mode="build" title="Add and place walls (B)">build</button></nav>
     <div class="status"><span><i class="led"></i>saved</span><span><i class="led off" id="ledHands"></i>hands</span></div></div>
   <div class="transport">
@@ -300,7 +300,7 @@ body.float footer#foot{display:none}
         <div class="row"><label for="gK">Colours</label><input type="range" id="gK" min="2" max="16" step="1" value="7"><output id="gKOut">7</output></div>
         <div class="row"><label for="gDetail">Detail</label><input type="range" id="gDetail" min="1" max="10" step="1" value="5"><output id="gDetailOut">5</output></div>
         <div class="chips" id="guideLayers">
-          <button class="chip on" data-layer="lines">Outlines</button><button class="chip on" data-layer="fill">Colour fills</button><button class="chip on" data-layer="numbers">Numbers</button><button class="chip" data-layer="photo">Photo</button>
+          <button class="chip on" data-layer="lines">Outlines</button><button class="chip on" data-layer="fill">Colour fills</button><button class="chip" data-layer="numbers">Numbers</button><button class="chip" data-layer="photo">Photo</button>
         </div>
         <div class="chips" id="lineColors">
           <button class="chip on" data-lc="#ffffff">White lines</button><button class="chip" data-lc="#111111">Black lines</button><button class="chip" data-lc="#00f0ff">Cyan lines</button>
@@ -1594,7 +1594,7 @@ class Layer {
     const asp = img.width / img.height;
     this.hgt = Math.min(wall.h * .7, wall.w * .7 / asp); this.rot = 0;
     this.mode = 'shapes'; this.k = 7; this.detail = 5; this.opacity = .6; this.lineW = 2.5; this.lineColor = '#ffffff';
-    this.show = {lines:true, fill:true, numbers:true, photo:false}; this.focus = -1; this.data = null;
+    this.show = {lines:true, fill:true, numbers:false, photo:false}; this.focus = -1; this.data = null;
     const t = mk(96, 96), tx = t.getContext('2d'), s = Math.min(96/img.width, 96/img.height); tx.drawImage(img, (96 - img.width*s)/2, (96 - img.height*s)/2, img.width*s, img.height*s);
     this.thumb = t.toDataURL('image/png');
     wall.layers.push(this);

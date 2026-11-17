@@ -1,6 +1,6 @@
 # SPRAY by JAS.BLACK
 
-Version 1.0.2
+Version 1.0.3
 
 **A 3D graffiti wall studio in the browser: real spray caps, paint markers, image guides, auto paint and time-lapse export.** By [JAS.BLACK](https://jas.black).
 

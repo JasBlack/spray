@@ -106,7 +106,7 @@ class Layer {
     const asp = img.width / img.height;
     this.hgt = Math.min(wall.h * .7, wall.w * .7 / asp); this.rot = 0;
     this.mode = 'shapes'; this.k = 7; this.detail = 5; this.opacity = .6; this.lineW = 2.5; this.lineColor = '#ffffff';
-    this.show = {lines:true, fill:true, numbers:true, photo:false}; this.focus = -1; this.data = null;
+    this.show = {lines:true, fill:true, numbers:false, photo:false}; this.focus = -1; this.data = null;
     const t = mk(96, 96), tx = t.getContext('2d'), s = Math.min(96/img.width, 96/img.height); tx.drawImage(img, (96 - img.width*s)/2, (96 - img.height*s)/2, img.width*s, img.height*s);
     this.thumb = t.toDataURL('image/png');
     wall.layers.push(this);

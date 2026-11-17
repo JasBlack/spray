@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3 — 2026-11-17
+
+- Image guides no longer show the colour numbers by default: you get the outlines and colour fills. Turn **Numbers** on in the Images tab for any image that needs them. Yards and project files saved earlier keep their own setting.
+
 ## 1.0.2 — 2026-11-17
 
 - Works on phones and tablets. Below 900px wide the top bar becomes a row of icon keys (undo, back to wall, redo, rec, tools, full screen, theme) with the paint · images · build switch on its own row underneath, so nothing overlaps.
