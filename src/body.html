@@ -5,14 +5,14 @@
     <nav class="view-switch" id="modeBar" aria-label="Mode"><button data-mode="paint" class="on" title="Paint (P)">paint</button><button data-mode="arrange" title="Move, scale and rotate images (M)">images</button><button data-mode="build" title="Add and place walls (B)">build</button></nav>
     <div class="status"><span><i class="led"></i>saved</span><span><i class="led off" id="ledHands"></i>hands</span></div></div>
   <div class="transport">
-    <button id="undoTop" title="Undo (Ctrl+Z)">↶ undo</button>
-    <button id="homeBtn" class="primary" title="Back in front of the last wall you painted (Home)">⟲ back to wall</button>
-    <button id="redoTop" title="Redo (Ctrl+Shift+Z)">↷ redo</button>
-    <button class="record-key" id="recKey" title="Record video"><span class="rec-dot"></span>rec</button>
+    <button id="undoTop" title="Undo (Ctrl+Z)" aria-label="Undo">↶<span class="lbl"> undo</span></button>
+    <button id="homeBtn" class="primary" title="Back in front of the last wall you painted (Home)" aria-label="Back to wall">⟲<span class="lbl"> back to wall</span></button>
+    <button id="redoTop" title="Redo (Ctrl+Shift+Z)" aria-label="Redo">↷<span class="lbl"> redo</span></button>
+    <button class="record-key" id="recKey" title="Record video" aria-label="Record video"><span class="rec-dot"></span><span class="lbl">rec</span></button>
   </div>
   <div class="hr">
-    <button id="guideKey">? guide</button>
-    <button id="hidePanel" title="Hide tools (H)">▤ tools</button>
+    <button id="guideKey" title="Guide">?<span class="lbl"> guide</span></button>
+    <button id="hidePanel" aria-label="Tools" title="Show / hide tools (H)">▤<span class="lbl"> tools</span></button>
     <button class="icon-key" id="fsKey" title="Full screen">⛶</button>
     <button class="icon-key" id="themeKey" title="Light / dark theme">◐</button>
   </div>

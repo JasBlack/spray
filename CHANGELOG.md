@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.2 — 2026-11-17
+
+- Works on phones and tablets. Below 900px wide the top bar becomes a row of icon keys (undo, back to wall, redo, rec, tools, full screen, theme) with the paint · images · build switch on its own row underneath, so nothing overlaps.
+- On phones the tools open as a sheet under the 3D view; the tools key lights up while it is open. The floating tools button, key hints and monitor caption are hidden on small screens.
+- Phones held sideways keep a single top bar and put the tools beside the view.
+- Bigger touch targets: taller keys and chips, larger slider knobs.
+- Respects the iPhone notch and home bar, and sizes to the visible screen (no jump when the browser bar hides).
+- The full-screen key is hidden where the browser can't go full screen (iPhone Safari).
+
 ## 1.0.1 — 2026-11-12
 
 - Renamed from Spraylab to **Spray**: the title, tab, link preview, home-screen name, messages and exported file names (`spray-recording…`, `spray-photo.png`, `spray-wall.png`, `spray-project.json`).

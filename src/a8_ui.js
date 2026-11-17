@@ -259,6 +259,7 @@ function wireUI(){
   // console keys: record, guide, full screen, theme, slider fill
   $('#recKey').onclick = () => $('#recBtn').click();
   $('#guideKey').onclick = () => { const t = document.querySelector('#tabs [data-tab=more]'); if (t) t.click(); if ($('#panel').hidden) togglePanel(); };
+  if (!document.fullscreenEnabled) $('#fsKey').hidden = true;
   $('#fsKey').onclick = () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen().catch(() => {});
   const setTheme = t => { if (t === 'light') document.body.dataset.ui = 'light'; else delete document.body.dataset.ui; try { localStorage.setItem('spraylab-ui', t); } catch (e) {} };
   try { setTheme(localStorage.getItem('spraylab-ui') || 'dark'); } catch (e) {}

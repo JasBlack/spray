@@ -180,24 +180,72 @@ body.float footer#foot{display:none}
 #err{position:fixed;inset:0;z-index:50;background:var(--case);display:grid;place-items:center;padding:24px;text-align:center}
 @media (max-width:1150px){.status{display:none}}
 @media (max-width:850px){body.dock main{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) 40%}body.dock main:has(> #panel[hidden]){grid-template-rows:minmax(0,1fr)}body.dock #panel{order:2}}
+/* ---- phones and small tablets ---- */
+@supports (height:100dvh){html,body{height:100dvh}}
+@media (max-width:1100px){#guideKey .lbl{display:none}#guideKey{width:36px;padding:0}}
+@media (max-width:980px){.transport .lbl{display:none}.transport button{min-width:40px!important;padding:0 12px!important;font-size:14px!important}.transport #homeBtn{padding:0 16px!important}.rec-dot{margin:0}}
+@media (max-width:900px){
+  body.dock{padding:max(8px,env(safe-area-inset-top)) max(8px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));gap:8px}
+  #bar{height:auto;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"brand transport right" "modes modes modes";row-gap:8px;column-gap:8px;padding:0}
+  #bar .hl{display:contents}
+  #bar .brand{grid-area:brand;font-size:12px;letter-spacing:.24em}
+  #bar .brand-ver,#bar .status,#guideKey,footer#foot,.monitor-top,#showPanel{display:none!important}
+  #bar .view-switch{grid-area:modes}
+  #bar .view-switch button{height:30px!important;font-size:10px!important}
+  #bar .transport{grid-area:transport;justify-content:center;gap:6px}
+  #bar .hr{grid-area:right;gap:6px}
+  #bar .hr .lbl{display:none}
+  #bar .transport button,#bar .hr button{height:38px!important;min-width:38px!important;width:auto;padding:0 10px!important;font-size:15px!important}
+  #bar .transport #homeBtn{padding:0 14px!important}
+  body:has(#panel:not([hidden])) #hidePanel{background:var(--accent);color:#0b0b0c;border-color:#24bc62;box-shadow:0 2px 0 #13743c}
+  body.dock main{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) 48%;gap:8px}
+  body.dock main:has(> #panel[hidden]){grid-template-rows:minmax(0,1fr)}
+  body.dock #panel{order:2;gap:8px}
+  #monitor{border-radius:10px}
+  #hud{gap:10px;font-size:8px;padding:0 10px}
+  #hud .hide-s{display:none}
+  section{padding:12px 10px}
+  .row{grid-template-columns:64px 1fr 46px}
+  input[type=range]{height:28px}
+  input[type=range]::-webkit-slider-thumb{width:18px;height:18px;margin-top:-8px}
+  input[type=range]::-moz-range-thumb{width:18px;height:18px}
+  .btn{height:38px}
+  .chip{height:28px;font-size:9px}
+  .swatches{gap:6px}
+  #toast{right:8px;left:8px;bottom:12px;max-width:none}
+}
+@media (max-width:370px){#bar .brand{font-size:0;gap:0}#bar .transport button,#bar .hr button{padding:0 8px!important}}
+/* phone on its side: keep one header row and put the panel at the side */
+@media (max-height:520px) and (orientation:landscape){
+  body.dock{padding:max(6px,env(safe-area-inset-top)) max(8px,env(safe-area-inset-right)) max(6px,env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));gap:6px}
+  #bar{height:40px;grid-template-areas:none;grid-template-columns:auto minmax(0,1fr) auto;row-gap:0}
+  #bar .hl{display:flex}
+  #bar .view-switch{grid-area:auto}
+  #bar .transport,#bar .hr{grid-area:auto}
+  #bar .brand-ver,#bar .status,#guideKey,footer#foot,.monitor-top,#showPanel{display:none!important}
+  #bar .transport button,#bar .hr button{height:34px!important}
+  body.dock main{grid-template-rows:minmax(0,1fr);grid-template-columns:260px minmax(0,1fr);gap:8px}
+  body.dock main:has(> #panel[hidden]){grid-template-columns:minmax(0,1fr)}
+  body.dock #panel{order:0}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body class="dock">
 <div id="loading"><div><div class="logo">SPRAY</div><p id="loadMsg">Mixing paint…</p></div></div>
 <header id="bar">
-  <div class="hl"><span class="brand">SPRAY</span><span class="brand-ver">v1.0.1</span>
+  <div class="hl"><span class="brand">SPRAY</span><span class="brand-ver">v1.0.2</span>
     <nav class="view-switch" id="modeBar" aria-label="Mode"><button data-mode="paint" class="on" title="Paint (P)">paint</button><button data-mode="arrange" title="Move, scale and rotate images (M)">images</button><button data-mode="build" title="Add and place walls (B)">build</button></nav>
     <div class="status"><span><i class="led"></i>saved</span><span><i class="led off" id="ledHands"></i>hands</span></div></div>
   <div class="transport">
-    <button id="undoTop" title="Undo (Ctrl+Z)">↶ undo</button>
-    <button id="homeBtn" class="primary" title="Back in front of the last wall you painted (Home)">⟲ back to wall</button>
-    <button id="redoTop" title="Redo (Ctrl+Shift+Z)">↷ redo</button>
-    <button class="record-key" id="recKey" title="Record video"><span class="rec-dot"></span>rec</button>
+    <button id="undoTop" title="Undo (Ctrl+Z)" aria-label="Undo">↶<span class="lbl"> undo</span></button>
+    <button id="homeBtn" class="primary" title="Back in front of the last wall you painted (Home)" aria-label="Back to wall">⟲<span class="lbl"> back to wall</span></button>
+    <button id="redoTop" title="Redo (Ctrl+Shift+Z)" aria-label="Redo">↷<span class="lbl"> redo</span></button>
+    <button class="record-key" id="recKey" title="Record video" aria-label="Record video"><span class="rec-dot"></span><span class="lbl">rec</span></button>
   </div>
   <div class="hr">
-    <button id="guideKey">? guide</button>
-    <button id="hidePanel" title="Hide tools (H)">▤ tools</button>
+    <button id="guideKey" title="Guide">?<span class="lbl"> guide</span></button>
+    <button id="hidePanel" aria-label="Tools" title="Show / hide tools (H)">▤<span class="lbl"> tools</span></button>
     <button class="icon-key" id="fsKey" title="Full screen">⛶</button>
     <button class="icon-key" id="themeKey" title="Light / dark theme">◐</button>
   </div>
@@ -2465,6 +2513,7 @@ function wireUI(){
   // console keys: record, guide, full screen, theme, slider fill
   $('#recKey').onclick = () => $('#recBtn').click();
   $('#guideKey').onclick = () => { const t = document.querySelector('#tabs [data-tab=more]'); if (t) t.click(); if ($('#panel').hidden) togglePanel(); };
+  if (!document.fullscreenEnabled) $('#fsKey').hidden = true;
   $('#fsKey').onclick = () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen().catch(() => {});
   const setTheme = t => { if (t === 'light') document.body.dataset.ui = 'light'; else delete document.body.dataset.ui; try { localStorage.setItem('spraylab-ui', t); } catch (e) {} };
   try { setTheme(localStorage.getItem('spraylab-ui') || 'dark'); } catch (e) {}
