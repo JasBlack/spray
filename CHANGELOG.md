@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4 — 2026-11-17
+
+- New starting setup: **NY Fat** cap, **13.5 cm** distance, **90%** pressure, light drips, **Lemon** paint.
+
 ## 1.0.3 — 2026-11-17
 
 - Image guides no longer show the colour numbers by default: you get the outlines and colour fills. Turn **Numbers** on in the Images tab for any image that needs them. Yards and project files saved earlier keep their own setting.

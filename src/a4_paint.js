@@ -28,7 +28,7 @@ const PALETTE = [
   ['Olive','#6d6b2a'],['Sand','#d9c28f'],['Peach','#ffc7a8'],['Skin','#e9b48f'],['Caramel','#c07a3e'],['Rust','#a3471c'],['Brown','#6b3b1f'],['Chocolate','#3a2216'],['Neon Orange','#ff6a00'],
 ];
 
-const S = { tool:'spray', cap:1, marker:2, hex:'#ff2fa8', colorName:'Neon Pink', dist:.12, flow:1, erase:false, drips:true, dripAmt:.3, aim:true, sound:true, volume:.55, fan:0, mode:'paint' };
+const S = { tool:'spray', cap:4, marker:2, hex:'#ffec4d', colorName:'Lemon', dist:.135, flow:.9, erase:false, drips:true, dripAmt:.3, aim:true, sound:true, volume:.55, fan:0, mode:'paint' };
 
 class Painter {
   constructor(name){

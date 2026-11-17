@@ -64,7 +64,7 @@ async function boot(){
   await msg('Loading your spray can…'); loadCanAssets(); me.avatar = makeAvatar(null); me.setColor(S.hex);
   await msg('Laying the yard…'); buildYard(); setLighting('day');
   await msg('Building the controls…');
-  wireUI(); setTool('spray'); selectCap(1); setColor('#ff2fa8', 'Neon Pink'); recent = []; renderRecent(); setDist(.12); setMode('paint');
+  wireUI(); setTool('spray'); selectCap(4); setColor('#ffec4d', 'Lemon'); recent = []; renderRecent(); setDist(.135); setMode('paint');
   if (window.innerWidth <= 720){ $('#panel').hidden = true; $('#showPanel').hidden = false; }
   await msg('Opening your yard…');
   let restored = false;

@@ -32,8 +32,8 @@
       <div class="caps" id="caps"></div>
       <div class="capnote" id="capNote"></div>
       <div class="row" id="fanRow" hidden><label for="fanAngle">Tip angle</label><input type="range" id="fanAngle" min="-90" max="90" step="1" value="0"><output id="fanOut">0°</output></div>
-      <div class="row" id="distRow"><label for="dist">Distance</label><input type="range" id="dist" min="2.5" max="45" step="0.5" value="12"><output id="distOut">12 cm</output></div>
-      <div class="row" id="flowRow"><label for="flow">Pressure</label><input type="range" id="flow" min="30" max="160" step="1" value="100"><output id="flowOut">100%</output></div>
+      <div class="row" id="distRow"><label for="dist">Distance</label><input type="range" id="dist" min="2.5" max="45" step="0.5" value="13.5"><output id="distOut">13.5 cm</output></div>
+      <div class="row" id="flowRow"><label for="flow">Pressure</label><input type="range" id="flow" min="30" max="160" step="1" value="90"><output id="flowOut">90%</output></div>
       <div class="row"><label for="dripAmt">Drips</label><input type="range" id="dripAmt" min="0" max="100" step="1" value="30"><output id="dripOut">Light</output></div>
       <div class="grid2">
         <button class="btn on" id="toolPaint">Paint</button>
@@ -43,8 +43,8 @@
     <section data-tab="paint">
       <h2>Colour <span>keys 1–9</span></h2>
       <div class="current">
-        <input type="color" id="colorPick" value="#ff2fa8" aria-label="Custom colour">
-        <div style="flex:1;min-width:0"><div id="colorName">Neon Pink</div><div id="colorHex">#FF2FA8</div></div>
+        <input type="color" id="colorPick" value="#ffec4d" aria-label="Custom colour">
+        <div style="flex:1;min-width:0"><div id="colorName">Lemon</div><div id="colorHex">#FFEC4D</div></div>
         <button class="ghost" id="pickBtn" title="Pick a colour off the wall (I, or Alt + click)">Pick</button>
       </div>
       <div class="swatches" id="palette"></div>
@@ -197,7 +197,7 @@
   <canvas id="gl" aria-label="3D yard of walls. Hold the left mouse button to spray."></canvas>
   <div id="hud">
   <span class="dot" id="hudDot"></span>
-  <span id="hudCap">Pro Skinny</span>
+  <span id="hudCap">NY Fat</span>
   <span><span class="k">dist</span> <span id="hudDist">12.0cm</span></span>
   <span class="hide-s"><span class="k">⌀</span> <span id="hudW">1.6cm</span></span>
   <span class="hide-s"><span class="k" id="hudPK">psi</span></span><span class="meter hide-s"><i id="hudP" style="width:100%"></i></span>
